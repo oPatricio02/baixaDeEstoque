@@ -15,8 +15,6 @@ import java.util.List;
 public class AcertoService {
 
     @Autowired
-    ProdutoRepository produtoRepository;
-    @Autowired
     AcertoRepository acertoRepository;
 
     @Autowired
