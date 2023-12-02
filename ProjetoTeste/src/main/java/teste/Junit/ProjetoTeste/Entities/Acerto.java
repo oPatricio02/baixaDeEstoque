@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import teste.Junit.ProjetoTeste.Dtos.AcertoDto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
+
 
 @Table(name = "acerto")
 @Entity(name = "acerto")
@@ -19,17 +21,18 @@ public class Acerto {
     @Column(name="idacerto")
     private Long id;
 
-    private Long codigoProduto;
+    private Long codprod;
     private int quantidade;
     private String tipo;
 
     @Enumerated(EnumType.STRING)
     private MotivoBaixa motivo;
 
-    private LocalDateTime data;
+    private LocalDate data;
+
 
     public Acerto(AcertoDto dados){
-        this.codigoProduto = dados.codigoProduto();
+        this.codprod = dados.codigoProduto();
         this.quantidade = dados.quantidade();
         this.tipo = dados.tipo();
         this.motivo = dados.motivo();

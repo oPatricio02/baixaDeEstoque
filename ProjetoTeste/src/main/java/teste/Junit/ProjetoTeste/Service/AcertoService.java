@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import teste.Junit.ProjetoTeste.Dtos.AcertoDto;
 import teste.Junit.ProjetoTeste.Entities.Acerto;
+import teste.Junit.ProjetoTeste.Entities.Produto;
 import teste.Junit.ProjetoTeste.Repositories.AcertoRepository;
 import teste.Junit.ProjetoTeste.Repositories.ProdutoRepository;
 import teste.Junit.ProjetoTeste.Validacoes.ValidadorDeAcerto;
@@ -18,6 +19,9 @@ public class AcertoService {
     AcertoRepository acertoRepository;
 
     @Autowired
+    ProdutoRepository produtoRepository;
+
+    @Autowired
     private List<ValidadorDeAcerto> validadores;//Vai criar uma lista de todos o métodos que implementam essa interface
 
     public void registrarBaixa(AcertoDto dados)
@@ -25,6 +29,9 @@ public class AcertoService {
         validadores.forEach(v->v.validar(dados));//Vai percorrer todos os métodos da lista
 
         Acerto acerto = new Acerto(dados);
+        Produto produto = produtoRepository.getReferenceById(dados.codigoProduto());
+        produto.setQuantidade(produto.getQuantidade() - dados.quantidade());
+
         acertoRepository.save(acerto);
     }
 

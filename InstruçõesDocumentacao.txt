@@ -1,0 +1,2 @@
+Página html do swagger: http://localhost:8080/swagger-ui.html
+Documentação em Json: http://localhost:8080/v3/api-docs

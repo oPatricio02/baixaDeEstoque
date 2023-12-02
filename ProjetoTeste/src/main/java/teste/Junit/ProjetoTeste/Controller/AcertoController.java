@@ -24,7 +24,7 @@ public class AcertoController {
     AcertoService acerto;
 
     @GetMapping
-    public ResponseEntity<Object> getAll()
+    public ResponseEntity getAll()
     {
         List<Acerto> acertos = repository.findAll();
         return ResponseEntity.ok(acertos);
