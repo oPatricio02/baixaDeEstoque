@@ -51,6 +51,13 @@
   font-size: large;
 }
 
+.Formulario select{
+  width: 51%;
+  margin-left: 2%;
+  border-radius: 5px;
+  font-size: large;
+}
+
 .Formulario button{
   margin-top: 1vw;
   align-self: center;

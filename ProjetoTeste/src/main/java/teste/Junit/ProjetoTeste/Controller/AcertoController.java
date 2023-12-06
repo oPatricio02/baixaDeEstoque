@@ -23,6 +23,7 @@ public class AcertoController {
     @Autowired
     AcertoService acerto;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAll()
     {
@@ -30,6 +31,7 @@ public class AcertoController {
         return ResponseEntity.ok(acertos);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity newBaixa(@RequestBody AcertoDto baixa)
     {
